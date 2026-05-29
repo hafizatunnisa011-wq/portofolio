@@ -19,15 +19,15 @@
         /* 1. MEMPERBESAR SEMUA TEKS SECARA PROPORSIONAL SESUAI SKALA */
         html {
             scroll-behavior: smooth;
-            font-size: 118%; /* Mengubah skala dasar teks website agar lebih besar */
+            font-size: 118%; 
         }
 
-        /* 2. MENGUBAH FONT TEKS KECIL (ABOUT, MENU, DLL) MENJADI TIMES NEW ROMAN */
+        /* 2. MENGUBAH FONT TEKS KECIL MENJADI TIMES NEW ROMAN */
         body, p, span, li, a, .contact-item, .sidebar h3, .menu a {
             font-family: 'Times New Roman', Times, serif !important;
         }
 
-        /* 3. MENJAGA JUDUL BESAR UTAMANYA TETAP BER-FONT SANS-SERIF MODERN (Biar Tetap Estetik) */
+        /* 3. MENJAGA JUDUL BESAR UTAMANYA TETAP BER-FONT SANS-SERIF MODERN */
         h1, h2, h4, .sidebar h1, .title {
             font-family: Arial, Helvetica, sans-serif !important;
         }
@@ -169,6 +169,12 @@
             padding: 30px;
             box-shadow: 0 0 15px rgba(0,0,0,0.08);
             margin-bottom: 20px;
+        }
+
+        /* PERUBAHAN KHUSUS UKURAN TEKS DALAM ABOUT */
+        .card-custom p {
+            font-size: 22px !important; /* Membuat ukuran tulisan cerita 'Pija' menjadi lebih besar */
+            line-height: 1.6;           /* Memberi spasi antar baris kalimat agar seimbang dan rapi */
         }
 
         .skill {
