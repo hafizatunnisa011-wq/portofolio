@@ -3,340 +3,350 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Portfolio Pija</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
     <style>
-        /* 1. MENAIKKAN SKALA GLOBAL AGAR TETAP BESAR SAAT ONLINE */
-        html {
-            scroll-behavior: smooth;
-            font-size: 135%; 
+        html{
+            scroll-behavior:smooth;
         }
 
-        /* 2. MENGUBAH FONT TEKS DESKRIPSI MENJADI TIMES NEW ROMAN */
-        body, p, span, li, a, .contact-item, .sidebar h3, .menu a {
-            font-family: 'Times New Roman', Times, serif !important;
-        }
-
-        /* 3. JUDUL BESAR UTAMA TETAP SANS-SERIF MODERN */
-        h1, h2, h4, .sidebar h1, .title {
-            font-family: Arial, Helvetica, sans-serif !important;
-        }
-
-        body {
-            margin: 0;
-            background: #fff5f8;
+        body{
+            margin:0;
+            font-family:Arial;
+            background:#fff5f8;
         }
 
         /* BACKGROUND BLUR */
-        .blur1 {
-            position: absolute;
-            width: 350px;
-            height: 350px;
-            background: #ff8fc7;
-            border-radius: 50%;
-            filter: blur(140px);
-            top: -100px;
-            right: 100px;
-            z-index: -1;
+        .blur1{
+            position:absolute;
+            width:350px;
+            height:350px;
+            background:#ff8fc7;
+            border-radius:50%;
+            filter:blur(140px);
+            top:-100px;
+            right:100px;
+            z-index:-1;
         }
 
-        .blur2 {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: #ffb6d9;
-            border-radius: 50%;
-            filter: blur(120px);
-            bottom: 100px;
-            left: 250px;
-            z-index: -1;
+        .blur2{
+            position:absolute;
+            width:300px;
+            height:300px;
+            background:#ffb6d9;
+            border-radius:50%;
+            filter:blur(120px);
+            bottom:100px;
+            left:250px;
+            z-index:-1;
         }
 
-        /* SIDEBAR */
-        .sidebar {
-            width: 300px;
-            height: 100vh;
-            background: linear-gradient(180deg, #ff7eb3, #ff4f9a);
-            position: fixed;
-            left: 0;
-            top: 0;
-            color: white;
-            text-align: center;
-            padding: 30px;
+        .sidebar{
+            width:300px;
+            height:100vh;
+            background:linear-gradient(
+                180deg,
+                #ff7eb3,
+                #ff4f9a
+            );
+
+            position:fixed;
+            left:0;
+            top:0;
+
+            color:white;
+            text-align:center;
+            padding:30px;
         }
 
-        .profile {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid white;
-            margin-top: 20px;
+        .profile{
+            width:180px;
+            height:180px;
+            border-radius:50%;
+            object-fit:cover;
+            border:5px solid white;
+            margin-top:20px;
         }
 
-        .sidebar h1 {
-            margin-top: 20px;
-            font-size: 35px;
-            font-weight: bold;
+        .sidebar h1{
+            margin-top:20px;
+            font-size:35px;
+            font-weight:bold;
         }
 
-        .sidebar h3 {
-            font-size: 20px;
-            font-weight: normal;
+        .sidebar h3{
+            font-size:20px;
+            font-weight:normal;
         }
 
-        .menu {
-            margin-top: 40px;
+        .menu{
+            margin-top:40px;
         }
 
-        .menu a {
-            display: block;
-            color: white;
-            text-decoration: none;
-            padding: 12px;
-            margin-bottom: 10px;
-            border-radius: 10px;
-            transition: 0.3s;
+        .menu a{
+            display:block;
+            color:white;
+            text-decoration:none;
+            padding:12px;
+            margin-bottom:10px;
+            border-radius:10px;
+            transition:0.3s;
         }
 
-        .menu a:hover {
-            background: white;
-            color: #ff4f9a;
+        .menu a:hover{
+            background:white;
+            color:#ff4f9a;
         }
 
-        /* MAIN CONTENT - Mengunci lebar maksimal agar tidak melar gepeng saat online */
-        .content {
-            margin-left: 320px;
-            padding: 50px;
-            max-width: 1200px; 
+        .content{
+            margin-left:320px;
+            padding:50px;
         }
 
-        section {
-            min-height: 50vh;
-            padding-top: 50px;
+        section{
+            min-height:50vh;
+            padding-top:50px;
         }
 
-        .title {
-            color: #ff4f9a;
-            font-weight: bold;
-            margin-bottom: 20px;
+        .title{
+            color:#ff4f9a;
+            font-weight:bold;
+            margin-bottom:20px;
         }
 
-        /* HERO AREA */
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 40px;
-            position: relative;
+        .hero{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:50px;
         }
 
-        .hero-text h1 {
-            font-size: 65px;
-            font-weight: bold;
+        .hero-text h1{
+            font-size:70px;
+            font-weight:bold;
         }
 
-        .pink {
-            color: #ff4f9a;
+        .pink{
+            color:#ff4f9a;
         }
 
-        .btn-pink {
-            background: #ff4f9a;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 10px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 15px;
+        .btn-pink{
+            background:#ff4f9a;
+            color:white;
+            padding:12px 25px;
+            border-radius:10px;
+            text-decoration:none;
+            display:inline-block;
+            margin-top:15px;
         }
 
-        .btn-pink:hover {
-            background: #ff2f87;
+        .btn-pink:hover{
+            background:#ff2f87;
         }
 
-        /* CARDS */
-        .card-custom {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.08);
-            margin-bottom: 20px;
+        .card-custom{
+            background:white;
+            border-radius:20px;
+            padding:30px;
+            box-shadow:0 0 15px rgba(0,0,0,0.08);
+            margin-bottom:20px;
         }
 
-        /* Mengunci ukuran teks paragraf about tetap menonjol dan proporsional */
-        .card-custom p {
-            font-size: 20px !important;
-            line-height: 1.6;
+        .skill{
+            margin-bottom:20px;
         }
 
-        .skill {
-            margin-bottom: 20px;
+        .project-card{
+            background:white;
+            border-radius:20px;
+            overflow:hidden;
+            box-shadow:0 0 10px rgba(0,0,0,0.1);
+            transition:0.3s;
+            cursor:pointer;
         }
 
-        .project-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            transition: 0.3s;
-            cursor: pointer;
+        .project-card:hover{
+            transform:translateY(-8px);
         }
 
-        .project-card:hover {
-            transform: translateY(-8px);
+        .project-card img{
+            width:100%;
+            height:220px;
+            object-fit:cover;
         }
 
-        .project-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
+        .project-card .p-3{
+            padding:20px;
         }
 
-        .project-card .p-3 {
-            padding: 20px;
+        .shadow{
+            box-shadow:0 5px 15px rgba(0,0,0,0.15) !important;
         }
 
-        .shadow {
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15) !important;
+        .card-custom img{
+            transition:0.3s;
         }
 
-        .card-custom img {
-            transition: 0.3s;
+        .card-custom img:hover{
+            transform:scale(1.02);
         }
 
-        .card-custom img:hover {
-            transform: scale(1.02);
+        .contact-item{
+            margin-bottom:15px;
+            font-size:18px;
         }
 
-        .contact-item {
-            margin-bottom: 15px;
-            font-size: 18px;
+        @media(max-width:768px){
+            .sidebar{
+                position:relative;
+                width:100%;
+                height:auto;
+            }
+
+            .content{
+                margin-left:0;
+            }
+
+            .hero{
+                flex-direction:column;
+            }
+
+            .hero-text h1{
+                font-size:45px;
+            }
         }
 
-        /* FOTO GANTUNG ANIMATION AREA */
-        .photos-area {
-            position: relative;
-            width: 300px;
-            height: 450px;
+        /* HERO */
+        .hero{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:40px;
+            position:relative;
         }
 
-        .hanging-photo {
-            position: absolute;
-            animation: swing 4s ease-in-out infinite;
-            transform-origin: top center;
+        /* FOTO GANTUNG */
+        /* AREA FOTO */
+        .photos-area{
+            position:relative;
+            width:300px;
+            height:450px;
         }
 
-        .photo-1 {
-            top: 0;
-            left: 0;
+        /* FOTO GANTUNG */
+        .hanging-photo{
+            position:absolute;
+            animation:swing 4s ease-in-out infinite;
+            transform-origin:top center;
         }
 
-        .photo-2 {
-            top: 80px;
-            right: 0;
-            animation-delay: 1s;
+        /* FOTO PERTAMA */
+        .photo-1{
+            top:0;
+            left:0;
         }
 
-        .rope {
-            width: 4px;
-            height: 120px;
-            background: linear-gradient(180deg, #ffb3d1, #ff4f9a, #ffb3d1);
-            border-radius: 20px;
-            margin: auto;
+        /* FOTO KEDUA */
+        .photo-2{
+            top:80px;
+            right:0;
+            animation-delay:1s;
         }
 
-        .rope-long {
-            height: 180px;
+        /* TALI */
+        .rope{
+            width:4px;
+            height:120px;
+            background: linear-gradient(
+                180deg,
+                #ffb3d1,
+                #ff4f9a,
+                #ffb3d1
+            );
+            border-radius:20px;
+            margin:auto;
         }
 
-        .photo-gantung {
-            width: 170px;
-            height: 170px;
-            border-radius: 25px;
-            object-fit: cover;
-            border: 7px solid white;
+        /* TALI LEBIH PANJANG */
+        .rope-long{
+            height:180px;
+        }
+
+        /* FOTO */
+        .photo-gantung{
+            width:170px;
+            height:170px;
+            border-radius:25px;
+            object-fit:cover;
+            border:7px solid white;
             box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-            transition: 0.4s;
+            transition:0.4s;
         }
 
-        .photo-gantung:hover {
+        .photo-gantung:hover{
             transform: scale(1.05) rotate(4deg);
         }
 
         /* COMPUTER IMAGE */
-        .computer-img img {
-            animation: float 4s ease-in-out infinite;
+        .computer-img img{
+            animation:float 4s ease-in-out infinite;
         }
 
-        /* KEYFRAMES ANIMASI */
-        @keyframes float {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0); }
+        /* FLOAT */
+        @keyframes float{
+            0%{ transform:translateY(0); }
+            50%{ transform:translateY(-15px); }
+            100%{ transform:translateY(0); }
         }
 
-        @keyframes swing {
-            0% { transform: rotate(5deg); }
-            50% { transform: rotate(-5deg); }
-            100% { transform: rotate(5deg); }
+        /* ANIMASI AYUN */
+        @keyframes swing{
+            0%{ transform:rotate(5deg); }
+            50%{ transform:rotate(-5deg); }
+            100%{ transform:rotate(5deg); }
         }
 
         /* PAKU PINK */
-        .pin {
-            width: 22px;
-            height: 22px;
-            background: radial-gradient(circle at top left, #ffd6e8, #ff4f9a);
-            border-radius: 50%;
-            margin: auto;
-            position: relative;
-            z-index: 10;
+        .pin{
+            width:22px;
+            height:22px;
+            background: radial-gradient(
+                circle at top left,
+                #ffd6e8,
+                #ff4f9a
+            );
+            border-radius:50%;
+            margin:auto;
+            position:relative;
+            z-index:10;
             box-shadow: 0 3px 10px rgba(255,79,154,0.35);
         }
 
-        .pin::after {
-            content: "";
-            width: 7px;
-            height: 7px;
-            background: #fff;
-            border-radius: 50%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+        /* EFEK TENGAH PAKU */
+        .pin::after{
+            content:"";
+            width:7px;
+            height:7px;
+            background:#fff;
+            border-radius:50%;
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
         }
 
-        @keyframes butterflyFly {
-            0% { transform: rotate(-8deg) scale(1); }
-            100% { transform: rotate(8deg) scale(1.08); }
-        }
-
-        /* RESPONSIVE LAYOUT (MOBILE) */
-        @media(max-width:768px){
-            .sidebar {
-                position: relative;
-                width: 100%;
-                height: auto;
-                padding: 20px;
-            }
-            .content {
-                margin-left: 0;
-                padding: 20px;
-            }
-            .hero {
-                flex-direction: column;
-                gap: 30px;
-            }
-            .hero-text h1 {
-                font-size: 45px;
-            }
+        @keyframes butterflyFly{
+            0%{ transform: rotate(-8deg) scale(1); }
+            100%{ transform: rotate(8deg) scale(1.08); }
         }
     </style>
 </head>
+
 <body>
 
     <div class="blur1"></div>
@@ -348,11 +358,21 @@
         <h3>Web Developer</h3>
 
         <div class="menu">
-            <a href="#home"><i class="fa fa-house"></i> Home</a>
-            <a href="#about"><i class="fa fa-user"></i> About</a>
-            <a href="#skills"><i class="fa fa-code"></i> Skills</a>
-            <a href="#project"><i class="fa fa-briefcase"></i> Project & Jurnal</a>
-            <a href="#contact"><i class="fa fa-envelope"></i> Contact</a>
+            <a href="#home">
+                <i class="fa fa-house"></i> Home
+            </a>
+            <a href="#about">
+                <i class="fa fa-user"></i> About
+            </a>
+            <a href="#skills">
+                <i class="fa fa-code"></i> Skills
+            </a>
+            <a href="#project">
+                <i class="fa fa-briefcase"></i> Project & Jurnal
+            </a>
+            <a href="#contact">
+                <i class="fa fa-envelope"></i> Contact
+            </a>
         </div>
     </div>
 
@@ -374,6 +394,7 @@
                         <div class="rope"></div>
                         <img src="{{ asset('assets/img/fotogantung1.jpeg') }}" class="photo-gantung">
                     </div>
+
                     <div class="hanging-photo photo-2">
                         <div class="pin"></div>
                         <div class="rope rope-long"></div>
@@ -418,18 +439,21 @@
                         <div class="progress-bar bg-danger" style="width:95%"></div>
                     </div>
                 </div>
+
                 <div class="skill">
                     <p>CSS</p>
                     <div class="progress">
                         <div class="progress-bar bg-info" style="width:90%"></div>
                     </div>
                 </div>
+
                 <div class="skill">
                     <p>PHP</p>
                     <div class="progress">
                         <div class="progress-bar bg-warning" style="width:80%"></div>
                     </div>
                 </div>
+
                 <div class="skill">
                     <p>Laravel</p>
                     <div class="progress">
@@ -442,7 +466,7 @@
         <section id="project" data-aos="fade-up">
             <h2 class="title">Project & Jurnal</h2>
             <div class="row">
-                <div class="col-md-5 mb-4">
+                <div class="col-md-5">
                     <a href="/resto" style="text-decoration:none;color:black;">
                         <div class="project-card">
                             <img src="{{ asset('assets/img/resto-cover.jpeg') }}">
@@ -454,7 +478,7 @@
                     </a>
                 </div>
 
-                <div class="col-md-5">
+                <div class="col-md-5 mt-4">
                     <a href="https://doi.org/10.62671/jikum.v2i1.174" target="_blank" style="text-decoration:none;color:black;">
                         <div class="project-card">
                             <div class="p-3">
@@ -479,18 +503,21 @@
                                 <i class="fa fa-envelope pink"></i> hafizatu.nnisa011@gmail.com
                             </a>
                         </div>
+
                         <div class="contact-item">
                             <a href="https://wa.me/6282277802230" target="_blank" style="text-decoration:none;color:black;">
                                 <i class="fa-brands fa-whatsapp pink"></i> 082277802230
                             </a>
                         </div>
                     </div>
+
                     <div class="col-md-6">
                         <div class="contact-item">
                             <a href="https://instagram.com/hafizatunnsa_" target="_blank" style="text-decoration:none;color:black;">
                                 <i class="fa-brands fa-instagram pink"></i> @hafizatunnsa_
                             </a>
                         </div>
+
                         <div class="contact-item">
                             <a href="https://www.linkedin.com/in/hafizatunnisa-92b14840b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" style="text-decoration:none;color:black;">
                                 <i class="fa-brands fa-linkedin pink"></i> Hafizatunnisa.
@@ -506,8 +533,8 @@
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
         AOS.init({
-            duration: 1200,
-            once: true,
+            duration:1200,
+            once:true,
         });
     </script>
 </body>
