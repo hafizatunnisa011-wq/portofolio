@@ -16,10 +16,10 @@
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
     <style>
-        /* 1. MEMPERBESAR SEMUA TEKS SECARA PROPORSIONAL SESUAI SKALA */
+        /* 1. MENAIKKAN SKALA GLOBAL AGAR BESARNYA SEPERTI VERSI OFFLINE KAMU */
         html {
             scroll-behavior: smooth;
-            font-size: 118%; 
+            font-size: 135%; /* Menaikkan basis ukuran teks secara global */
         }
 
         /* 2. MENGUBAH FONT TEKS KECIL MENJADI TIMES NEW ROMAN */
@@ -117,9 +117,11 @@
             color: #ff4f9a;
         }
 
+        /* PERBAIKAN: Membatasi lebar content agar tidak melar/gepeng di layar lebar */
         .content {
             margin-left: 320px;
             padding: 50px;
+            max-width: 1200px; /* Mengunci lebar konten agar tetap padat seperti gambar idealmu */
         }
 
         section {
@@ -141,7 +143,7 @@
         }
 
         .hero-text h1 {
-            font-size: 70px;
+            font-size: 65px;
             font-weight: bold;
         }
 
@@ -171,10 +173,10 @@
             margin-bottom: 20px;
         }
 
-        /* PERUBAHAN KHUSUS UKURAN TEKS DALAM ABOUT */
+        /* Mengunci ukuran teks paragraf about agar terbaca jelas */
         .card-custom p {
-            font-size: 22px !important; /* Membuat ukuran tulisan cerita 'Pija' menjadi lebih besar */
-            line-height: 1.6;           /* Memberi spasi antar baris kalimat agar seimbang dan rapi */
+            font-size: 20px !important; 
+            line-height: 1.6;           
         }
 
         .skill {
@@ -353,9 +355,11 @@
 
 <body>
 
+    <!-- BLUR BACKGROUND -->
     <div class="blur1"></div>
     <div class="blur2"></div>
 
+    <!-- SIDEBAR -->
     <div class="sidebar">
         <img src="{{ asset('assets/img/foto.jpeg') }}" class="profile">
         <h1>Hafizatunnisa</h1>
@@ -380,8 +384,10 @@
         </div>
     </div>
 
+    <!-- CONTENT -->
     <div class="content">
 
+        <!-- HOME -->
         <section id="home" data-aos="fade-up">
             <div class="hero">
                 <div class="hero-text">
@@ -392,6 +398,7 @@
                     <a href="#project" class="btn-pink">Lihat Project</a>
                 </div>
 
+                <!-- FOTO GANTUNG -->
                 <div class="photos-area">
                     <div class="hanging-photo photo-1">
                         <div class="pin"></div>
@@ -405,12 +412,14 @@
                     </div>
                 </div>
 
+                <!-- GAMBAR COMPUTER -->
                 <div class="computer-img">
                     <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" width="320">
                 </div>
             </div>
         </section>
 
+        <!-- ABOUT -->
         <section id="about" data-aos="fade-up">
             <h2 class="title">Tentang Saya</h2>
             <div class="card-custom">
@@ -433,6 +442,7 @@
             </div>
         </section>
 
+        <!-- SKILLS -->
         <section id="skills" data-aos="fade-up">
             <h2 class="title">Skills</h2>
             <div class="card-custom">
@@ -463,6 +473,7 @@
             </div>
         </section>
 
+        <!-- PROJECT -->
         <section id="project" data-aos="fade-up">
             <h2 class="title">Project & Jurnal</h2>
             <div class="row">
@@ -493,6 +504,7 @@
             </div>
         </section>
 
+        <!-- CONTACT -->
         <section id="contact" data-aos="fade-up">
             <h2 class="title">Contact</h2>
             <div class="card-custom">
