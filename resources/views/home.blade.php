@@ -2,32 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Pija</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-          rel="stylesheet">
-
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
     <style>
-        /* 1. MENAIKKAN SKALA GLOBAL AGAR BESARNYA SEPERTI VERSI OFFLINE KAMU */
+        /* 1. MENAIKKAN SKALA GLOBAL AGAR TETAP BESAR SAAT ONLINE */
         html {
             scroll-behavior: smooth;
-            font-size: 135%; /* Menaikkan basis ukuran teks secara global */
+            font-size: 135%; 
         }
 
-        /* 2. MENGUBAH FONT TEKS KECIL MENJADI TIMES NEW ROMAN */
+        /* 2. MENGUBAH FONT TEKS DESKRIPSI MENJADI TIMES NEW ROMAN */
         body, p, span, li, a, .contact-item, .sidebar h3, .menu a {
             font-family: 'Times New Roman', Times, serif !important;
         }
 
-        /* 3. MENJAGA JUDUL BESAR UTAMANYA TETAP BER-FONT SANS-SERIF MODERN */
+        /* 3. JUDUL BESAR UTAMA TETAP SANS-SERIF MODERN */
         h1, h2, h4, .sidebar h1, .title {
             font-family: Arial, Helvetica, sans-serif !important;
         }
@@ -62,14 +57,11 @@
             z-index: -1;
         }
 
+        /* SIDEBAR */
         .sidebar {
             width: 300px;
             height: 100vh;
-            background: linear-gradient(
-                180deg,
-                #ff7eb3,
-                #ff4f9a
-            );
+            background: linear-gradient(180deg, #ff7eb3, #ff4f9a);
             position: fixed;
             left: 0;
             top: 0;
@@ -117,11 +109,11 @@
             color: #ff4f9a;
         }
 
-        /* PERBAIKAN: Membatasi lebar content agar tidak melar/gepeng di layar lebar */
+        /* MAIN CONTENT - Mengunci lebar maksimal agar tidak melar gepeng saat online */
         .content {
             margin-left: 320px;
             padding: 50px;
-            max-width: 1200px; /* Mengunci lebar konten agar tetap padat seperti gambar idealmu */
+            max-width: 1200px; 
         }
 
         section {
@@ -135,11 +127,13 @@
             margin-bottom: 20px;
         }
 
+        /* HERO AREA */
         .hero {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 50px;
+            justify-content: center;
+            gap: 40px;
+            position: relative;
         }
 
         .hero-text h1 {
@@ -165,6 +159,7 @@
             background: #ff2f87;
         }
 
+        /* CARDS */
         .card-custom {
             background: white;
             border-radius: 20px;
@@ -173,10 +168,10 @@
             margin-bottom: 20px;
         }
 
-        /* Mengunci ukuran teks paragraf about agar terbaca jelas */
+        /* Mengunci ukuran teks paragraf about tetap menonjol dan proporsional */
         .card-custom p {
-            font-size: 20px !important; 
-            line-height: 1.6;           
+            font-size: 20px !important;
+            line-height: 1.6;
         }
 
         .skill {
@@ -223,33 +218,7 @@
             font-size: 18px;
         }
 
-        @media(max-width:768px){
-            .sidebar {
-                position: relative;
-                width: 100%;
-                height: auto;
-            }
-            .content {
-                margin-left: 0;
-            }
-            .hero {
-                flex-direction: column;
-            }
-            .hero-text h1 {
-                font-size: 45px;
-            }
-        }
-
-        /* HERO AREA */
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 40px;
-            position: relative;
-        }
-
-        /* AREA FOTO GANTUNG */
+        /* FOTO GANTUNG ANIMATION AREA */
         .photos-area {
             position: relative;
             width: 300px;
@@ -276,12 +245,7 @@
         .rope {
             width: 4px;
             height: 120px;
-            background: linear-gradient(
-                180deg,
-                #ffb3d1,
-                #ff4f9a,
-                #ffb3d1
-            );
+            background: linear-gradient(180deg, #ffb3d1, #ff4f9a, #ffb3d1);
             border-radius: 20px;
             margin: auto;
         }
@@ -309,14 +273,13 @@
             animation: float 4s ease-in-out infinite;
         }
 
-        /* FLOAT ANIMATION */
+        /* KEYFRAMES ANIMASI */
         @keyframes float {
             0% { transform: translateY(0); }
             50% { transform: translateY(-15px); }
             100% { transform: translateY(0); }
         }
 
-        /* SWING ANIMATION */
         @keyframes swing {
             0% { transform: rotate(5deg); }
             50% { transform: rotate(-5deg); }
@@ -327,11 +290,7 @@
         .pin {
             width: 22px;
             height: 22px;
-            background: radial-gradient(
-                circle at top left,
-                #ffd6e8,
-                #ff4f9a
-            );
+            background: radial-gradient(circle at top left, #ffd6e8, #ff4f9a);
             border-radius: 50%;
             margin: auto;
             position: relative;
@@ -348,46 +307,57 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes butterflyFly {
+            0% { transform: rotate(-8deg) scale(1); }
+            100% { transform: rotate(8deg) scale(1.08); }
+        }
+
+        /* RESPONSIVE LAYOUT (MOBILE) */
+        @media(max-width:768px){
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                padding: 20px;
+            }
+            .content {
+                margin-left: 0;
+                padding: 20px;
+            }
+            .hero {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .hero-text h1 {
+                font-size: 45px;
+            }
         }
     </style>
 </head>
-
 <body>
 
-    <!-- BLUR BACKGROUND -->
     <div class="blur1"></div>
     <div class="blur2"></div>
 
-    <!-- SIDEBAR -->
     <div class="sidebar">
         <img src="{{ asset('assets/img/foto.jpeg') }}" class="profile">
         <h1>Hafizatunnisa</h1>
         <h3>Web Developer</h3>
 
         <div class="menu">
-            <a href="#home">
-                <i class="fa fa-house"></i> Home
-            </a>
-            <a href="#about">
-                <i class="fa fa-user"></i> About
-            </a>
-            <a href="#skills">
-                <i class="fa fa-code"></i> Skills
-            </a>
-            <a href="#project">
-                <i class="fa fa-briefcase"></i> Project & Jurnal
-            </a>
-            <a href="#contact">
-                <i class="fa fa-envelope"></i> Contact
-            </a>
+            <a href="#home"><i class="fa fa-house"></i> Home</a>
+            <a href="#about"><i class="fa fa-user"></i> About</a>
+            <a href="#skills"><i class="fa fa-code"></i> Skills</a>
+            <a href="#project"><i class="fa fa-briefcase"></i> Project & Jurnal</a>
+            <a href="#contact"><i class="fa fa-envelope"></i> Contact</a>
         </div>
     </div>
 
-    <!-- CONTENT -->
     <div class="content">
 
-        <!-- HOME -->
         <section id="home" data-aos="fade-up">
             <div class="hero">
                 <div class="hero-text">
@@ -398,7 +368,6 @@
                     <a href="#project" class="btn-pink">Lihat Project</a>
                 </div>
 
-                <!-- FOTO GANTUNG -->
                 <div class="photos-area">
                     <div class="hanging-photo photo-1">
                         <div class="pin"></div>
@@ -412,14 +381,12 @@
                     </div>
                 </div>
 
-                <!-- GAMBAR COMPUTER -->
                 <div class="computer-img">
                     <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" width="320">
                 </div>
             </div>
         </section>
 
-        <!-- ABOUT -->
         <section id="about" data-aos="fade-up">
             <h2 class="title">Tentang Saya</h2>
             <div class="card-custom">
@@ -442,7 +409,6 @@
             </div>
         </section>
 
-        <!-- SKILLS -->
         <section id="skills" data-aos="fade-up">
             <h2 class="title">Skills</h2>
             <div class="card-custom">
@@ -473,7 +439,6 @@
             </div>
         </section>
 
-        <!-- PROJECT -->
         <section id="project" data-aos="fade-up">
             <h2 class="title">Project & Jurnal</h2>
             <div class="row">
@@ -504,7 +469,6 @@
             </div>
         </section>
 
-        <!-- CONTACT -->
         <section id="contact" data-aos="fade-up">
             <h2 class="title">Contact</h2>
             <div class="card-custom">
