@@ -1,541 +1,707 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Portfolio Pija</title>
+<title>Portfolio Hafizatunnisa</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-    <style>
-        html{
-            scroll-behavior:smooth;
-        }
+<style>
 
-        body{
-            margin:0;
-            font-family:Arial;
-            background:#fff5f8;
-        }
+html{
+    scroll-behavior:smooth;
+}
 
-        /* BACKGROUND BLUR */
-        .blur1{
-            position:absolute;
-            width:350px;
-            height:350px;
-            background:#ff8fc7;
-            border-radius:50%;
-            filter:blur(140px);
-            top:-100px;
-            right:100px;
-            z-index:-1;
-        }
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:#fff7fb;
+    overflow-x:hidden;
+}
 
-        .blur2{
-            position:absolute;
-            width:300px;
-            height:300px;
-            background:#ffb6d9;
-            border-radius:50%;
-            filter:blur(120px);
-            bottom:100px;
-            left:250px;
-            z-index:-1;
-        }
+/* BACKGROUND */
 
-        .sidebar{
-            width:300px;
-            height:100vh;
-            background:linear-gradient(
-                180deg,
-                #ff7eb3,
-                #ff4f9a
-            );
+.blur1{
+    position:fixed;
+    width:400px;
+    height:400px;
+    background:#ffb3d1;
+    border-radius:50%;
+    filter:blur(180px);
+    top:-100px;
+    right:-100px;
+    z-index:-1;
+}
 
-            position:fixed;
-            left:0;
-            top:0;
+.blur2{
+    position:fixed;
+    width:350px;
+    height:350px;
+    background:#ffd6e8;
+    border-radius:50%;
+    filter:blur(160px);
+    bottom:-100px;
+    left:-100px;
+    z-index:-1;
+}
 
-            color:white;
-            text-align:center;
-            padding:30px;
-        }
+/* NAVBAR */
 
-        .profile{
-            width:180px;
-            height:180px;
-            border-radius:50%;
-            object-fit:cover;
-            border:5px solid white;
-            margin-top:20px;
-        }
+.navbar-custom{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:75px;
 
-        .sidebar h1{
-            margin-top:20px;
-            font-size:35px;
-            font-weight:bold;
-        }
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(10px);
 
-        .sidebar h3{
-            font-size:20px;
-            font-weight:normal;
-        }
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-        .menu{
-            margin-top:40px;
-        }
+    padding:0 60px;
 
-        .menu a{
-            display:block;
-            color:white;
-            text-decoration:none;
-            padding:12px;
-            margin-bottom:10px;
-            border-radius:10px;
-            transition:0.3s;
-        }
+    z-index:9999;
+}
 
-        .menu a:hover{
-            background:white;
-            color:#ff4f9a;
-        }
+.logo{
+    color:#ff4f9a;
+    font-size:26px;
+    font-weight:700;
+}
 
-        .content{
-            margin-left:320px;
-            padding:50px;
-        }
+.nav-menu{
+    display:flex;
+    gap:30px;
+}
 
-        section{
-            min-height:50vh;
-            padding-top:50px;
-        }
+.nav-menu a{
+    position:relative;
+    text-decoration:none;
+    color:#444;
+    font-weight:600;
+    transition:.3s;
+}
 
-        .title{
-            color:#ff4f9a;
-            font-weight:bold;
-            margin-bottom:20px;
-        }
+.nav-menu a:hover{
+    color:#ff4f9a;
+}
+.nav-menu a.active{
+    color:#ff4f9a;
+}
 
-        .hero{
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            gap:50px;
-        }
+.nav-menu a.active::after{
+    width:100%;
+}
 
-        .hero-text h1{
-            font-size:70px;
-            font-weight:bold;
-        }
+.nav-menu a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0;
+    height:2px;
+    background:#ff4f9a;
+    transition:.3s;
+}
 
-        .pink{
-            color:#ff4f9a;
-        }
+.nav-menu a:hover::after{
+    width:100%;
+}
 
-        .btn-pink{
-            background:#ff4f9a;
-            color:white;
-            padding:12px 25px;
-            border-radius:10px;
-            text-decoration:none;
-            display:inline-block;
-            margin-top:15px;
-        }
+/* CONTENT */
 
-        .btn-pink:hover{
-            background:#ff2f87;
-        }
+.content{
+    max-width:1200px;
+    margin:auto;
+    padding:70px 40px 50px;
+}
+/* HERO */
 
-        .card-custom{
-            background:white;
-            border-radius:20px;
-            padding:30px;
-            box-shadow:0 0 15px rgba(0,0,0,0.08);
-            margin-bottom:20px;
-        }
+.hero-modern{
+    min-height:65vh;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
 
-        .skill{
-            margin-bottom:20px;
-        }
+.hero-photo img{
+    width:220px;
+    height:220px;
+    object-fit:cover;
 
-        .project-card{
-            background:white;
-            border-radius:20px;
-            overflow:hidden;
-            box-shadow:0 0 10px rgba(0,0,0,0.1);
-            transition:0.3s;
-            cursor:pointer;
-        }
+    border-radius:30px;
 
-        .project-card:hover{
-            transform:translateY(-8px);
-        }
+    border:7px solid white;
 
-        .project-card img{
-            width:100%;
-            height:220px;
-            object-fit:cover;
-        }
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+}
 
-        .project-card .p-3{
-            padding:20px;
-        }
+.hero-text h1{
+    font-size:52px;
+}
 
-        .shadow{
-            box-shadow:0 5px 15px rgba(0,0,0,0.15) !important;
-        }
+.hero-label{
+    color:#ff4f9a;
+    font-weight:700;
+    letter-spacing:2px;
+}
 
-        .card-custom img{
-            transition:0.3s;
-        }
+.hero-text h1{
+    font-size:58px;
+    font-weight:800;
+    line-height:1.1;
+    margin-top:15px;
+}
 
-        .card-custom img:hover{
-            transform:scale(1.02);
-        }
+.hero-text p{
+    color:#555;
+    max-width:550px;
+    font-size:17px;
+    margin-top:15px;
+}
 
-        .contact-item{
-            margin-bottom:15px;
-            font-size:18px;
-        }
+.pink{
+    color:#ff4f9a;
+}
 
-        @media(max-width:768px){
-            .sidebar{
-                position:relative;
-                width:100%;
-                height:auto;
-            }
+.hero-btns{
+    display:flex;
+    gap:15px;
+    margin-top:25px;
+}
 
-            .content{
-                margin-left:0;
-            }
+.btn-pink{
+    background:#ff4f9a;
+    color:white;
+    text-decoration:none;
+    padding:12px 25px;
+    border-radius:12px;
+    transition:.3s;
+    box-shadow:0 8px 20px rgba(255,79,154,.25);
+}
 
-            .hero{
-                flex-direction:column;
-            }
 
-            .hero-text h1{
-                font-size:45px;
-            }
-        }
+.btn-pink:hover{
+    background:#ff2e85;
+    color:white;
+     transform:translateY(-2px);
+}
 
-        /* HERO */
-        .hero{
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            gap:40px;
-            position:relative;
-        }
+.btn-outline{
+    border:2px solid #ff4f9a;
+    color:#ff4f9a;
+    text-decoration:none;
+    padding:12px 25px;
+    border-radius:12px;
+    transition:.3s;
+}
 
-        /* FOTO GANTUNG */
-        /* AREA FOTO */
-        .photos-area{
-            position:relative;
-            width:300px;
-            height:450px;
-        }
+.btn-outline:hover{
+    background:#ff4f9a;
+    color:white;
+}
 
-        /* FOTO GANTUNG */
-        .hanging-photo{
-            position:absolute;
-            animation:swing 4s ease-in-out infinite;
-            transform-origin:top center;
-        }
+.hero-right{
+    flex:1;
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    margin-left:-180px;
+}
 
-        /* FOTO PERTAMA */
-        .photo-1{
-            top:0;
-            left:0;
-        }
+.computer-img{
+    width:420px;
+    max-width:100%;
+}
 
-        /* FOTO KEDUA */
-        .photo-2{
-            top:80px;
-            right:0;
-            animation-delay:1s;
-        }
 
-        /* TALI */
-        .rope{
-            width:4px;
-            height:120px;
-            background: linear-gradient(
-                180deg,
-                #ffb3d1,
-                #ff4f9a,
-                #ffb3d1
-            );
-            border-radius:20px;
-            margin:auto;
-        }
+.title{
+    color:#ff4f9a;
+    font-weight:700;
+    margin-bottom:20px;
+}
 
-        /* TALI LEBIH PANJANG */
-        .rope-long{
-            height:180px;
-        }
+.card-custom{
+    background:white;
+    border-radius:25px;
+    padding:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    margin-bottom:20px;
+}
 
-        /* FOTO */
-        .photo-gantung{
-            width:170px;
-            height:170px;
-            border-radius:25px;
-            object-fit:cover;
-            border:7px solid white;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-            transition:0.4s;
-        }
+@media(max-width:991px){
 
-        .photo-gantung:hover{
-            transform: scale(1.05) rotate(4deg);
-        }
+    .navbar-custom{
+        padding:0 20px;
+    }
 
-        /* COMPUTER IMAGE */
-        .computer-img img{
-            animation:float 4s ease-in-out infinite;
-        }
+    .content{
+        padding:100px 20px;
+    }
 
-        /* FLOAT */
-        @keyframes float{
-            0%{ transform:translateY(0); }
-            50%{ transform:translateY(-15px); }
-            100%{ transform:translateY(0); }
-        }
+    .hero-modern{
+        flex-direction:column;
+        text-align:center;
+    }
 
-        /* ANIMASI AYUN */
-        @keyframes swing{
-            0%{ transform:rotate(5deg); }
-            50%{ transform:rotate(-5deg); }
-            100%{ transform:rotate(5deg); }
-        }
+    .hero-text h1{
+        font-size:40px;
+    }
 
-        /* PAKU PINK */
-        .pin{
-            width:22px;
-            height:22px;
-            background: radial-gradient(
-                circle at top left,
-                #ffd6e8,
-                #ff4f9a
-            );
-            border-radius:50%;
-            margin:auto;
-            position:relative;
-            z-index:10;
-            box-shadow: 0 3px 10px rgba(255,79,154,0.35);
-        }
+    .hero-photo img{
+        width:180px;
+        height:180px;
+    }
 
-        /* EFEK TENGAH PAKU */
-        .pin::after{
-            content:"";
-            width:7px;
-            height:7px;
-            background:#fff;
-            border-radius:50%;
-            position:absolute;
-            top:50%;
-            left:50%;
-            transform: translate(-50%,-50%);
-        }
+    .computer-img{
+        width:280px;
+    }
 
-        @keyframes butterflyFly{
-            0%{ transform: rotate(-8deg) scale(1); }
-            100%{ transform: rotate(8deg) scale(1.08); }
-        }
-    </style>
+    .nav-menu{
+        gap:15px;
+        font-size:14px;
+    }
+    }
+
+/* PROJECT */
+
+.project-card{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    transition:.3s;
+    height:100%;
+}
+
+.project-card:hover{
+    transform:translateY(-8px);
+}
+
+.project-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    display:block;
+}
+
+.project-card .p-4,
+.project-card .p-3{
+    padding:25px;
+}
+
+.project-card h4{
+    font-size:24px;
+    margin-bottom:15px;
+}
+
+.project-card p{
+    color:#555;
+    line-height:1.7;
+}
+
+/* SECTION */
+
+section{
+    padding-top:40px;
+    padding-bottom:20px;
+}
+
+/* SKILL */
+
+.progress{
+    height:12px;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    border-radius:20px;
+}
+
+/* CONTACT */
+
+.contact-item{
+    margin-bottom:15px;
+}
+
+.contact-item a{
+    text-decoration:none;
+    color:#333;
+    transition:.3s;
+}
+
+.contact-item a:hover{
+    color:#ff4f9a;
+
+}
+
+</style>
 </head>
 
 <body>
 
-    <div class="blur1"></div>
-    <div class="blur2"></div>
+<div class="blur1"></div>
+<div class="blur2"></div>
 
-    <div class="sidebar">
-        <img src="{{ asset('assets/img/foto.jpeg') }}" class="profile">
-        <h1>Hafizatunnisa</h1>
-        <h3>Web Developer</h3>
+<nav class="navbar-custom">
 
-        <div class="menu">
-            <a href="#home">
-                <i class="fa fa-house"></i> Home
-            </a>
-            <a href="#about">
-                <i class="fa fa-user"></i> About
-            </a>
-            <a href="#skills">
-                <i class="fa fa-code"></i> Skills
-            </a>
-            <a href="#project">
-                <i class="fa fa-briefcase"></i> Project & Jurnal
-            </a>
-            <a href="#contact">
-                <i class="fa fa-envelope"></i> Contact
-            </a>
-        </div>
+    <div class="logo">
+        pija
     </div>
 
-    <div class="content">
+    <div class="nav-menu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#project">Project</a>
+        <a href="#contact">contact</a>
+    </div>
 
-        <section id="home" data-aos="fade-up">
-            <div class="hero">
-                <div class="hero-text">
-                    <h2>Halo 👋</h2>
-                    <h1>Saya <span class="pink">Hafizatunnisa</span></h1>
-                    <h3>Mahasiswa Teknik Informatika</h3>
-                    <p>Saya tertarik pada web development, UI/UX, dan desain website modern.</p>
-                    <a href="#project" class="btn-pink">Lihat Project</a>
-                </div>
+</nav>
 
-                <div class="photos-area">
-                    <div class="hanging-photo photo-1">
-                        <div class="pin"></div>
-                        <div class="rope"></div>
-                        <img src="{{ asset('assets/img/fotogantung1.jpeg') }}" class="photo-gantung">
-                    </div>
+<div class="content">
 
-                    <div class="hanging-photo photo-2">
-                        <div class="pin"></div>
-                        <div class="rope rope-long"></div>
-                        <img src="{{ asset('assets/img/fotogantung2.jpeg') }}" class="photo-gantung">
-                    </div>
-                </div>
+<section id="home" data-aos="fade-up">
 
-                <div class="computer-img">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" width="320">
-                </div>
+    <div class="hero-modern">
+
+        <div class="hero-photo">
+            <img src="{{ asset('assets/img/foto.jpeg') }}">
+        </div>
+
+        <div class="hero-text">
+
+            <span class="hero-label">
+                WEB DEVELOPER
+            </span>
+
+            <h1>
+                Halo, Saya
+                <span class="pink">
+                    Hafizatunnisa
+                </span>
+            </h1>
+
+            <p>
+                Mahasiswa Teknik Informatika yang memiliki minat
+                pada Web Development, UI/UX Design, Laravel,
+                PHP, dan MySQL.
+            </p>
+
+            <div class="hero-btns">
+
+                <a href="#project" class="btn-pink">
+                    Lihat Project
+                </a>
+
+                <a href="#contact" class="btn-outline">
+                    Hubungi Saya
+                </a>
+
             </div>
-        </section>
 
-        <section id="about" data-aos="fade-up">
-            <h2 class="title">Tentang Saya</h2>
-            <div class="card-custom">
-                <p>Halo, nama saya Hafizatunnisa, namun biasa dipanggil 'Pija'. Saya merupakan mahasiswa Teknik Informatika Universitas Malikussaleh yang memiliki minat besar dalam dunia teknologi, khususnya pada bidang web development dan desain antarmuka website.</p>
+        </div>
+
+        <div class="hero-right">
+
+            <img
+                src="{{ asset('assets/img/computer.png') }}"
+                class="computer-img">
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="about" data-aos="fade-up">
+    <h2 class="title">About</h2>
+
+<div class="card-custom">
+
+     <p>Halo, nama saya Hafizatunnisa, namun biasa dipanggil 'Pija'. Saya merupakan mahasiswa Teknik Informatika Universitas Malikussaleh yang memiliki minat besar dalam dunia teknologi, khususnya pada bidang web development dan desain antarmuka website.</p>
                 <p>Saya senang mempelajari hal-hal baru dan terus mencoba mengembangkan kemampuan saya dalam membuat website yang modern, responsif, dan nyaman digunakan oleh pengguna.</p>
                 <p>Selain belajar coding, saya juga tertarik pada desain visual dan UI/UX karena menurut saya tampilan website yang menarik dapat memberikan pengalaman yang lebih baik bagi pengguna.</p>
                 <p>Saat ini saya sedang fokus mempelajari HTML, CSS, PHP, Laravel, dan database MySQL untuk mengembangkan berbagai project website sederhana. Saya juga senang bekerja secara mandiri maupun bersama tim dalam menyelesaikan suatu project.</p>
                 <p>Melalui portfolio ini, saya ingin menunjukkan beberapa hasil pembelajaran dan project yang pernah saya buat selama proses belajar di dunia teknologi informasi.</p>
 
-                <div class="row mt-4">
-                    <div class="col-md-6">
-                        <p><b>Nama :</b> Hafizatunnisa</p>
-                        <p><b>Email :</b> hafizatu.nnisa011@gmail.com</p>
-                    </div>
-                    <div class="col-md-6">
-                        <p><b>Lokasi :</b> Aceh, Indonesia</p>
-                        <p><b>Status :</b> Mahasiswa</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <div class="row mt-4">
 
-        <section id="skills" data-aos="fade-up">
-            <h2 class="title">Skills</h2>
-            <div class="card-custom">
-                <div class="skill">
-                    <p>HTML</p>
-                    <div class="progress">
-                        <div class="progress-bar bg-danger" style="width:95%"></div>
-                    </div>
-                </div>
+        <div class="col-md-6">
+            <p><b>Nama :</b> Hafizatunnisa</p>
+            <p><b>Status :</b> Mahasiswa</p>
+        </div>
 
-                <div class="skill">
-                    <p>CSS</p>
-                    <div class="progress">
-                        <div class="progress-bar bg-info" style="width:90%"></div>
-                    </div>
-                </div>
-
-                <div class="skill">
-                    <p>PHP</p>
-                    <div class="progress">
-                        <div class="progress-bar bg-warning" style="width:80%"></div>
-                    </div>
-                </div>
-
-                <div class="skill">
-                    <p>Laravel</p>
-                    <div class="progress">
-                        <div class="progress-bar" style="width:85%; background:#ff4f9a;"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="project" data-aos="fade-up">
-            <h2 class="title">Project & Jurnal</h2>
-            <div class="row">
-                <div class="col-md-5">
-                    <a href="/resto" style="text-decoration:none;color:black;">
-                        <div class="project-card">
-                            <img src="{{ asset('assets/img/resto-cover.jpeg') }}">
-                            <div class="p-3">
-                                <h4>Website Reservasi Restoran</h4>
-                                <p>Website reservasi restoran berbasis Laravel dengan dashboard admin.</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-md-5 mt-4">
-                    <a href="https://doi.org/10.62671/jikum.v2i1.174" target="_blank" style="text-decoration:none;color:black;">
-                        <div class="project-card">
-                            <div class="p-3">
-                                <h4>Analisis Keamanan Data Pengguna pada Platform E-commerce: Studi Kasus Kebocoran Data Tokopedia 2020</h4>
-                                <p>Penelitian mengenai usability dan pengalaman pengguna pada aplikasi Wattpad.</p>
-                                <p><b>Role :</b> Co-Author</p>
-                                <p><b>Tahun :</b> 2025</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" data-aos="fade-up">
-            <h2 class="title">Contact</h2>
-            <div class="card-custom">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="contact-item">
-                            <a href="mailto:hafizatu.nnisa011@gmail.com" style="text-decoration:none;color:black;">
-                                <i class="fa fa-envelope pink"></i> hafizatu.nnisa011@gmail.com
-                            </a>
-                        </div>
-
-                        <div class="contact-item">
-                            <a href="https://wa.me/6282277802230" target="_blank" style="text-decoration:none;color:black;">
-                                <i class="fa-brands fa-whatsapp pink"></i> 082277802230
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="contact-item">
-                            <a href="https://instagram.com/hafizatunnsa_" target="_blank" style="text-decoration:none;color:black;">
-                                <i class="fa-brands fa-instagram pink"></i> @hafizatunnsa_
-                            </a>
-                        </div>
-
-                        <div class="contact-item">
-                            <a href="https://www.linkedin.com/in/hafizatunnisa-92b14840b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" style="text-decoration:none;color:black;">
-                                <i class="fa-brands fa-linkedin pink"></i> Hafizatunnisa.
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <div class="col-md-6">
+            <p><b>Lokasi :</b> Aceh, Indonesia</p>
+            <p><b>Email :</b> hafizatu.nnisa011@gmail.com</p>
+        </div>
 
     </div>
 
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration:1200,
-            once:true,
-        });
-    </script>
+</div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills" data-aos="fade-up">
+
+<h2 class="title">Skills</h2>
+
+<div class="card-custom">
+
+    <div class="mb-4">
+        <label class="mb-2">HTML</label>
+
+        <div class="progress">
+            <div
+                class="progress-bar bg-danger"
+                style="width:95%">
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <label class="mb-2">CSS</label>
+
+        <div class="progress">
+            <div
+                class="progress-bar bg-info"
+                style="width:90%">
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <label class="mb-2">PHP</label>
+
+        <div class="progress">
+            <div
+                class="progress-bar bg-warning"
+                style="width:80%">
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <label class="mb-2">Laravel</label>
+
+        <div class="progress">
+            <div
+                class="progress-bar"
+                style="
+                width:85%;
+                background:#ff4f9a;">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- PROJECT -->
+
+<section id="project" data-aos="fade-up">
+
+<h2 class="title">
+    Project & Jurnal
+</h2>
+
+<div class="row">
+
+    <div class="col-lg-6 mb-4">
+
+        <a
+        href="/resto"
+        style="
+        text-decoration:none;
+        color:black;">
+
+            <div class="project-card">
+
+                <img
+                src="{{ asset('assets/img/resto-cover.jpeg') }}">
+
+                <div class="p-4">
+
+                    <h4>
+                        Website Reservasi Restoran
+                    </h4>
+
+                    <p>
+                        Website reservasi restoran
+                        berbasis Laravel dengan
+                        dashboard admin.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </a>
+
+    </div>
+
+    <div class="col-lg-6 mb-4">
+
+        <a
+        href="https://doi.org/10.62671/jikum.v2i1.174"
+        target="_blank"
+        style="
+        text-decoration:none;
+        color:black;">
+
+            <div class="project-card">
+
+                <div class="p-4">
+
+                    <h4>
+                        Analisis Keamanan Data Pengguna
+                        pada Platform E-Commerce
+                    </h4>
+
+                    <p>
+                        Studi kasus kebocoran data
+                        Tokopedia tahun 2020.
+                    </p>
+
+                    <p>
+                        <b>Role :</b> Co-Author
+                    </p>
+
+                    <p>
+                        <b>Tahun :</b> 2025
+                    </p>
+
+                </div>
+
+            </div>
+
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact" data-aos="fade-up">
+
+<h2 class="title">
+    Contact
+</h2>
+
+<div class="card-custom">
+
+    <div class="row">
+
+        <div class="col-md-6">
+
+            <div class="mb-3">
+
+                <a
+                href="mailto:hafizatu.nnisa011@gmail.com"
+                style="
+                text-decoration:none;
+                color:black;">
+
+                    <i class="fa fa-envelope pink"></i>
+
+                    hafizatu.nnisa011@gmail.com
+
+                </a>
+
+            </div>
+
+            <div class="mb-3">
+
+                <a
+                href="https://wa.me/6282277802230"
+                target="_blank"
+                style="
+                text-decoration:none;
+                color:black;">
+
+                    <i class="fa-brands fa-whatsapp pink"></i>
+
+                    082277802230
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+
+            <div class="mb-3">
+
+                <a
+                href="https://instagram.com/hafizatunnsa_"
+                target="_blank"
+                style="
+                text-decoration:none;
+                color:black;">
+
+                    <i class="fa-brands fa-instagram pink"></i>
+
+                    @hafizatunnsa_
+
+                </a>
+
+            </div>
+
+            <div class="mb-3">
+
+                <a
+                href="https://www.linkedin.com/in/hafizatunnisa-92b14840b"
+                target="_blank"
+                style="
+                text-decoration:none;
+                color:black;">
+
+                    <i class="fa-brands fa-linkedin pink"></i>
+
+                    Hafizatunnisa
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+</div>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+AOS.init({
+    duration:1200,
+    once:true
+});
+</script>
+
 </body>
 </html>
